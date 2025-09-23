@@ -25,16 +25,19 @@ type ChatProps = {
 
 const Chat: React.FC<ChatProps> = ({ messages, options, onSelect }) => {
     return (
-        <div className="flex flex-col h-full max-w-md mx-auto border rounded-2xl p-4 bg-white shadow">
-            {/* Área de mensajes */}
-            <div className="flex-1 overflow-y-auto mb-4">
+        <div className="flex flex-col h-full w-full">
+            {/* Mensajes */}
+            <div className="chat-messages">
                 {messages.map((msg) => (
                     <Message key={msg.id} author={msg.author} text={msg.text} />
                 ))}
             </div>
-
-            {/* Área de opciones */}
-            <Options options={options} onSelect={onSelect} />
+            {/* Opciones */}
+            {options.length > 0 && (
+                <div className="chat-input">
+                    <Options options={options} onSelect={onSelect} />
+                </div>
+            )}
         </div>
     );
 }
