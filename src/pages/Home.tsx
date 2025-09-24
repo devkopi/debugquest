@@ -11,9 +11,9 @@ type Option = {
     text: string;
 };
 const mockTickets = [
-    { id: 't1', title: 'Problema con login', lastMsg: 'No puedo acceder a mi cuenta', unread: 2 },
-    { id: 't2', title: 'Error en pago', lastMsg: 'El pago fue rechazado', unread: 0 },
-    { id: 't3', title: 'Consulta API', lastMsg: '¿Cómo uso el endpoint X?', unread: 1 },
+    { id: 't1', title: 'Problema con login', lastMsg: 'No puedo acceder a mi cuenta', },
+    { id: 't2', title: 'Error en pago', lastMsg: 'El pago fue rechazado', },
+    { id: 't3', title: 'Consulta API', lastMsg: '¿Cómo uso el endpoint X?', },
 ];
 
 const Home: React.FC = () => {
@@ -53,9 +53,6 @@ const Home: React.FC = () => {
                             <div className="ticket-content">
                                 <span className="ticket-title">{ticket.title}</span>
                                 <span className="ticket-lastmsg">{ticket.lastMsg}</span>
-                                {ticket.unread > 0 && (
-                                    <span className="ticket-unread">{ticket.unread}</span>
-                                )}
                             </div>
                         </button>
                     ))}
